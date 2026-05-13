@@ -44,7 +44,7 @@ export function PreviewFrame() {
           } else if (files.size > 0) {
             // Just use the first .jsx/.tsx file found
             const firstJSX = Array.from(files.keys()).find(
-              (path) => path.endsWith(".jsx") || path.endsWith(".tsx")
+              (path) => path.endsWith(".jsx") || path.endsWith(".tsx"),
             );
             if (firstJSX) {
               foundEntryPoint = firstJSX;
@@ -69,13 +69,18 @@ export function PreviewFrame() {
 
         if (!foundEntryPoint || !files.has(foundEntryPoint)) {
           setError(
-            "No React component found. Create an App.jsx or index.jsx file to get started."
+            "No React component found. Create an App.jsx or index.jsx file to get started.",
           );
           return;
         }
 
         const { importMap, styles, errors } = createImportMap(files);
-        const previewHTML = createPreviewHTML(foundEntryPoint, importMap, styles, errors);
+        const previewHTML = createPreviewHTML(
+          foundEntryPoint,
+          importMap,
+          styles,
+          errors,
+        );
 
         if (iframeRef.current) {
           const iframe = iframeRef.current;
@@ -83,7 +88,7 @@ export function PreviewFrame() {
           // Need both allow-scripts and allow-same-origin for blob URLs in import map
           iframe.setAttribute(
             "sandbox",
-            "allow-scripts allow-same-origin allow-forms"
+            "allow-scripts allow-same-origin allow-forms",
           );
           iframe.srcdoc = previewHTML;
 
@@ -101,7 +106,7 @@ export function PreviewFrame() {
   if (error) {
     if (error === "firstLoad") {
       return (
-        <div className="h-full flex items-center justify-center p-8 bg-gray-50">
+        <div className="h-full flex items-center justify-center p-8 bg-gray-100">
           <div className="text-center max-w-md">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
               <svg
