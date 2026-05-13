@@ -172,7 +172,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
 
             {message.role === "user" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-blue-600 shadow-sm flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-red-600 shadow-sm flex items-center justify-center">
                   <User className="h-4.5 w-4.5 text-white" />
                 </div>
               </div>
