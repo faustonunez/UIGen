@@ -56,7 +56,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 className={cn(
                   "rounded-xl px-4 py-3",
                   message.role === "user"
-                    ? "bg-red-600 text-white shadow-sm"
+                    ? "bg-green-600 text-white shadow-sm"
                     : "bg-white text-neutral-900 border border-neutral-200 shadow-sm",
                 )}
               >
@@ -172,7 +172,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
 
             {message.role === "user" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-red-600 shadow-sm flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-green-600 shadow-sm flex items-center justify-center">
                   <User className="h-4.5 w-4.5 text-white" />
                 </div>
               </div>
